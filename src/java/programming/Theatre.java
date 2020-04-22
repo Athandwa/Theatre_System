@@ -4,7 +4,7 @@ import java.util.*;
 
 public class Theatre {
     private final String theatreName;
-    private List<Seat> seats = new ArrayList<>();
+    private Collection<Seat> seats = new LinkedList<>();
 
     public Theatre(String theatreName, int numRows, int seatsPerRow) {
         this.theatreName = theatreName;
@@ -12,7 +12,7 @@ public class Theatre {
         int lastRow = 'A' + (numRows - 1);
         for (char row = 'A'; row <= lastRow; row++) {
             for (int seatNum = 1; seatNum <= seatsPerRow; seatNum++) {
-                Seat seat = new Seat(row + String.format("%02d", seatNum));
+                Seat seat = new Seat(row+ String.format("%02d", seatNum));
                 seat.add(seat);
             }
         }
@@ -41,7 +41,7 @@ public class Theatre {
     //for testing
     public void getSeats(){
         for (Seat seat : seats) {
-            System.out.println(seat.getSeatNumber);
+            System.out.println(seat.getSeatNumber());
         }
     }
 
@@ -74,6 +74,9 @@ public class Theatre {
         }
         public String getSeatNumber() {
             return seatNumber;
+        }
+
+        public void add(Seat seat) {
         }
     }
 }
